@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <div style={{ background: '#080808', minHeight: '100vh' }}>
       <div style={{ background: '#0a0a0a', padding: '32px 24px 24px', borderBottom: '1px solid #161616', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '120px', color: '#111', position: 'absolute', top: '-10px', right: '-10px', letterSpacing: '8px', lineHeight: 1, userSelect: 'none' }}>LIVE</div>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '80px', color: '#111', position: 'absolute', top: '-10px', right: '-10px', letterSpacing: '4px', lineHeight: 1, userSelect: 'none', display: window.innerWidth < 640 ? 'none' : 'block' }}>LIVE</div>
         <div style={{ fontSize: '11px', fontWeight: '600', color: '#f59e0b', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{ width: '24px', height: '2px', background: '#f59e0b' }}></div>
           Malam ini
