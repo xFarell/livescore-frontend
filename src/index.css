@@ -1,12 +1,230 @@
-@import "tailwindcss";
-
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Outfit', sans-serif;
-  background: #080808;
+  background: #f3f4f6;
+}
+
+/* Stats Container */
+.stats-container {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* Header */
+.stats-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.stats-header h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.stats-header p {
+  color: #6b7280;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Card */
+.match-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* League Header */
+.league-header {
+  background: linear-gradient(to right, #1f2937, #111827);
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.league-header span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #eab308;
+  letter-spacing: 1px;
+}
+
+/* Score Section */
+.score-section {
+  padding: 24px;
+  background: linear-gradient(to bottom right, #eff6ff, white, #fef2f2);
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team {
+  text-align: center;
+  flex: 1;
+}
+
+.team-logo {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.team-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.team-score {
+  font-size: 48px;
+  font-weight: 900;
+  margin-top: 8px;
+  color: #111827;
+}
+
+.status-box {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.status-live {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.status-ft {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.vs-text {
+  color: #9ca3af;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 20px 24px;
+  background-color: #f9fafb;
+}
+
+.stats-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stats-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #6b7280;
+  letter-spacing: 1px;
+}
+
+.stats-team-label {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.stats-team-label .home {
+  color: #2563eb;
+}
+
+.stats-team-label .away {
+  color: #dc2626;
+}
+
+/* Stat Row */
+.stat-row {
+  margin-bottom: 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.stat-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-value {
+  width: 56px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.stat-bar {
+  flex: 1;
+  display: flex;
+  height: 8px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background-color: #e5e7eb;
+}
+
+.stat-bar-home {
+  background-color: #2563eb;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.stat-bar-away {
+  background-color: #dc2626;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.stat-value-right {
+  width: 56px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Footer */
+.stats-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 24px;
+}
+
+/* Animasi */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
