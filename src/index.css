@@ -228,3 +228,90 @@ body {
 .animate-pulse {
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ========== RESPONSIVE UNTUK HP ========== */
+@media (max-width: 640px) {
+  /* Stats Container */
+  .stats-container {
+    padding: 20px 12px;
+  }
+
+  /* Header */
+  .stats-header h1 {
+    font-size: 24px;
+  }
+
+  .stats-header p {
+    font-size: 12px;
+  }
+
+  /* Score Section */
+  .score-section {
+    padding: 16px;
+  }
+
+  .team-logo {
+    font-size: 32px;
+  }
+
+  .team-name {
+    font-size: 12px;
+  }
+
+  .team-score {
+    font-size: 28px;
+  }
+
+  .status-box {
+    padding: 0 8px;
+  }
+
+  .status-live, .status-ft {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .vs-text {
+    font-size: 10px;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    padding: 16px;
+  }
+
+  .stats-title-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .stats-title {
+    font-size: 12px;
+  }
+
+  .stats-team-label {
+    font-size: 10px;
+    gap: 12px;
+  }
+
+  /* Stat Row */
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .stat-value, .stat-value-right {
+    width: 45px;
+    font-size: 12px;
+  }
+
+  .stat-bar-container {
+    gap: 6px;
+  }
+
+  /* Footer */
+  .stats-footer {
+    font-size: 10px;
+    margin-top: 16px;
+  }
+}

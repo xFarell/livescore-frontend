@@ -27,19 +27,33 @@ export default function Predict() {
   const colorMap = { 'Home Win': '#60a5fa', 'Away Win': '#f87171', 'Draw': '#f59e0b' }
 
   return (
-    <div style={{ background: '#080808', minHeight: '100vh', padding: '24px' }}>
-      <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+    <div style={{ background: '#080808', minHeight: '100vh', padding: '16px 12px' }}>
+      <div style={{ maxWidth: '100%', margin: '0 auto' }}>
 
-        <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Header */}
+        <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{ width: '24px', height: '2px', background: '#f59e0b' }}></div>
-          <span style={{ fontSize: '11px', color: '#f59e0b', fontWeight: '600', letterSpacing: '3px' }}>PREDIKSI PERTANDINGAN</span>
+          <span style={{ fontSize: '10px', color: '#f59e0b', fontWeight: '600', letterSpacing: '2px' }}>PREDIKSI PERTANDINGAN</span>
         </div>
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '36px', color: '#fff', letterSpacing: '3px', marginBottom: '24px' }}>
+        <div style={{ 
+          fontFamily: "'Bebas Neue', sans-serif", fontSize: '28px', color: '#fff', letterSpacing: '2px', marginBottom: '20px', lineHeight: 1.2 
+        }}>
           Siapa yang akan <span style={{ color: '#f59e0b' }}>menang?</span>
         </div>
 
-        <div style={{ background: '#0e0e0e', border: '1px solid #1a1a1a', borderRadius: '12px', padding: '24px', marginBottom: '16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '12px', alignItems: 'center', marginBottom: '20px' }}>
+        {/* Form Card */}
+        <div style={{ 
+          background: '#0e0e0e', border: '1px solid #1a1a1a', borderRadius: '12px', padding: '18px', marginBottom: '16px' 
+        }}>
+          {/* Team Selection - Responsive */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '16px', 
+            marginBottom: '20px' 
+          }}>
+            
+            {/* Home Team */}
             <div>
               <div style={{ fontSize: '10px', color: '#555', letterSpacing: '1.5px', marginBottom: '6px', fontWeight: '600' }}>TIM HOME</div>
               <select value={home} onChange={e => setHome(e.target.value)} style={{
@@ -51,7 +65,15 @@ export default function Predict() {
                 {teams.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
-            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '22px', color: '#333', letterSpacing: '2px', textAlign: 'center', marginTop: '16px' }}>VS</div>
+
+            {/* VS */}
+            <div style={{ 
+              fontFamily: "'Bebas Neue', sans-serif", fontSize: '18px', color: '#333', letterSpacing: '2px', textAlign: 'center', margin: '-4px 0'
+            }}>
+              VS
+            </div>
+
+            {/* Away Team */}
             <div>
               <div style={{ fontSize: '10px', color: '#555', letterSpacing: '1.5px', marginBottom: '6px', fontWeight: '600' }}>TIM AWAY</div>
               <select value={away} onChange={e => setAway(e.target.value)} style={{
@@ -65,22 +87,26 @@ export default function Predict() {
             </div>
           </div>
 
+          {/* Predict Button */}
           <button onClick={handlePredict} disabled={!home || !away || home === away || loading} style={{
-            width: '100%', padding: '13px', background: (!home || !away || home === away) ? '#1a1a1a' : '#f59e0b',
+            width: '100%', padding: '12px', background: (!home || !away || home === away) ? '#1a1a1a' : '#f59e0b',
             color: (!home || !away || home === away) ? '#333' : '#000',
             border: 'none', borderRadius: '8px', cursor: (!home || !away || home === away) ? 'not-allowed' : 'pointer',
-            fontFamily: "'Bebas Neue', sans-serif", fontSize: '16px', letterSpacing: '3px',
+            fontFamily: "'Bebas Neue', sans-serif", fontSize: '14px', letterSpacing: '2px',
             transition: 'all 0.2s'
           }}>
             {loading ? 'MENGANALISIS...' : 'PREDIKSI SEKARANG'}
           </button>
         </div>
 
+        {/* Result Card */}
         {result && (
-          <div style={{ background: '#0e0e0e', border: `1px solid ${colorMap[result.prediction]}44`, borderRadius: '12px', padding: '24px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-              <div style={{ fontSize: '11px', color: '#555', letterSpacing: '2px', marginBottom: '6px' }}>HASIL PREDIKSI</div>
-              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '32px', color: colorMap[result.prediction], letterSpacing: '3px' }}>
+          <div style={{ background: '#0e0e0e', border: `1px solid ${colorMap[result.prediction]}44`, borderRadius: '12px', padding: '18px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+              <div style={{ fontSize: '10px', color: '#555', letterSpacing: '2px', marginBottom: '6px' }}>HASIL PREDIKSI</div>
+              <div style={{ 
+                fontFamily: "'Bebas Neue', sans-serif", fontSize: '24px', color: colorMap[result.prediction], letterSpacing: '2px' 
+              }}>
                 {labelMap[result.prediction]}
               </div>
             </div>
@@ -89,10 +115,12 @@ export default function Predict() {
               { label: 'Seri', value: result.draw, color: '#f59e0b' },
               { label: away, value: result.awayWin, color: '#f87171' },
             ].map((item, i) => (
-              <div key={i} style={{ marginBottom: '12px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
-                  <span style={{ fontSize: '12px', color: '#888', fontWeight: '500' }}>{item.label}</span>
-                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '16px', color: item.color, letterSpacing: '1px' }}>{item.value}%</span>
+              <div key={i} style={{ marginBottom: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '11px', color: '#888', fontWeight: '500' }}>{item.label}</span>
+                  <span style={{ 
+                    fontFamily: "'Bebas Neue', sans-serif", fontSize: '14px', color: item.color, letterSpacing: '1px' 
+                  }}>{item.value}%</span>
                 </div>
                 <div style={{ height: '4px', background: '#1a1a1a', borderRadius: '2px', overflow: 'hidden' }}>
                   <div style={{ height: '100%', width: `${item.value}%`, background: item.color, borderRadius: '2px', transition: 'width 0.8s' }} />
